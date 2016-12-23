@@ -1,0 +1,11 @@
+.pioenvs
+.clang_complete
+.gcc-flags.json
+.piolibdeps
+.cproject
+.project
+/i2c_scanner/
+/src/
+/menu/
+/lib/
+/.travis.yml
