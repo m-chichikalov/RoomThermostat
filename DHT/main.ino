@@ -5,7 +5,8 @@
 #include <Arduino.h>
 #include <EEPROM.h>
 #include <EEWrap.h>               // https://github.com/Chris--A/EEWrap
-#include <LiquidCrystal_I2C.h>    // https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
+//#include <LiquidCrystal_I2C.h>    // https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
+#include <LiquidCrystal.h>
 #include <Adafruit_Sensor.h>      // https://github.com/adafruit/Adafruit_Sensor
 #include <Wire.h>
 #include <DallasTemperature.h>    // https://github.com/milesburton/Arduino-Temperature-Control-Library
@@ -13,7 +14,8 @@
 #include <ClickEncoder.h>         // https://github.com/soligen2010/encoder
 #include <MsTimer2.h>
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+//LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal lcd(A4, A5, A0, A1, A2, A3);
 
 #define  INT_SEND_TO_LCD                (5*1000)    // 5 sec
 #define  DHTTYPE                        DHT21       // DHT 21 (AM2301)
@@ -82,8 +84,8 @@ void setup() {
   dht.begin();
   dht2.begin();
   /* init LCD */
-  lcd.begin();
-  lcd.backlight();
+  lcd.begin(16,2);
+//  lcd.backlight();
   lcd.clear();
   lcd.setCursor(0, 0);
   /* init timer2 */
